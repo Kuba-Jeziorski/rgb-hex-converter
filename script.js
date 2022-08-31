@@ -102,8 +102,8 @@ document
     rgbHC.style.backgroundColor = `#${whole}`;
     hexRC.style.backgroundColor = hexR.innerHTML;
 
-    hexRCopy.innerHTML = "KOPIUJ";
-    rgbHCopy.innerHTML = "KOPIUJ";
+    hexRCopy.style.display = "block";
+    rgbHCopy.style.display = "block";
 
     hexRCopy.addEventListener("click", function () {
       contentCopy(rgbH.textContent);

@@ -94,6 +94,15 @@ label {
   border: 1px solid #000;
 }
 
+#rgb-to-hex-copy,
+#hex-to-rgb-copy {
+  cursor: pointer;
+  display: none;
+  width: 25%;
+  border: 1px solid red;
+  margin: 0 auto 15px;
+}
+
 /*
 1. Dodać alphę 
 2. Kopiowanie wyniku
