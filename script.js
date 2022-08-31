@@ -9,8 +9,8 @@ const hexR = document.getElementById("hex-to-rgb");
 const rgbHC = document.getElementById("rgb-to-hex-color");
 const hexRC = document.getElementById("hex-to-rgb-color");
 const alpha = document.getElementById("alpha");
-const rgbHCopy = document.getElementById("hex-to-rgb-copy");
-const hexRCopy = document.getElementById("rgb-to-hex-copy");
+const hexRCopy = document.getElementById("hex-to-rgb-copy");
+const rgbHCopy = document.getElementById("rgb-to-hex-copy");
 
 const valueMap = new Map([
   [10, "A"],
@@ -94,6 +94,38 @@ document
       let hexRGB = `${hexR}, ${hexG}, ${hexB}`;
       return hexRGB;
     };
+
+    hexRCopy.addEventListener("click", function () {
+      contentCopy(hexR.textContent);
+    });
+    rgbHCopy.addEventListener("click", function () {
+      contentCopy(rgbH.textContent);
+    });
+
+    red.value === "" || green.value === "" || blue.value === ""
+      ? (rgbH.style.display = "none")
+      : (rgbH.style.display = "block");
+
+    red.value === "" || green.value === "" || blue.value === ""
+      ? (rgbHCopy.style.display = "none")
+      : (rgbHCopy.style.display = "block");
+
+    red.value === "" || green.value === "" || blue.value === ""
+      ? (rgbHC.style.display = "none")
+      : (rgbHC.style.display = "block");
+    //
+    hex.value === ""
+      ? (hexR.style.display = "none")
+      : (hexR.style.display = "block");
+
+    hex.value === ""
+      ? (hexRCopy.style.display = "none")
+      : (hexRCopy.style.display = "block");
+
+    hex.value === ""
+      ? (hexRC.style.display = "none")
+      : (hexRC.style.display = "block");
+
     hexR.innerHTML =
       alpha.value === ""
         ? `rgb(${converterHexRgb(hex.value)})`
@@ -101,14 +133,4 @@ document
 
     rgbHC.style.backgroundColor = `#${whole}`;
     hexRC.style.backgroundColor = hexR.innerHTML;
-
-    hexRCopy.style.display = "block";
-    rgbHCopy.style.display = "block";
-
-    hexRCopy.addEventListener("click", function () {
-      contentCopy(rgbH.textContent);
-    });
-    rgbHCopy.addEventListener("click", function () {
-      contentCopy(hexR.textContent);
-    });
   });
