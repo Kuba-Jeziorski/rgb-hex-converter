@@ -11,6 +11,9 @@ const hexRC = document.getElementById("hex-to-rgb-color");
 const alpha = document.getElementById("alpha");
 const hexRCopy = document.getElementById("hex-to-rgb-copy");
 const rgbHCopy = document.getElementById("rgb-to-hex-copy");
+const rgbMain = document.getElementById("rgb-main");
+const hexMain = document.getElementById("hex-main");
+const reset = document.getElementById("reset");
 
 const valueMap = new Map([
   [10, "A"],
@@ -62,8 +65,6 @@ document
     arr2 = converterRgbHex(green.value);
     arr3 = converterRgbHex(blue.value);
     whole = [...arr1, ...arr2, ...arr3].join().replaceAll(",", "");
-    rgbH.innerHTML =
-      alpha.value === "" ? `#${whole}` : `#${whole}${alpha.value}`;
 
     //// HEX -> RGB
     const converterHexRgb = function (string) {
@@ -103,34 +104,45 @@ document
     });
 
     red.value === "" || green.value === "" || blue.value === ""
-      ? (rgbH.style.display = "none")
-      : (rgbH.style.display = "block");
-
-    red.value === "" || green.value === "" || blue.value === ""
-      ? (rgbHCopy.style.display = "none")
-      : (rgbHCopy.style.display = "block");
-
-    red.value === "" || green.value === "" || blue.value === ""
-      ? (rgbHC.style.display = "none")
-      : (rgbHC.style.display = "block");
-    //
-    hex.value === ""
-      ? (hexR.style.display = "none")
-      : (hexR.style.display = "block");
+      ? (rgbMain.style.display = "none")
+      : (rgbMain.style.display = "block");
 
     hex.value === ""
-      ? (hexRCopy.style.display = "none")
-      : (hexRCopy.style.display = "block");
+      ? (hexMain.style.display = "none")
+      : (hexMain.style.display = "block");
 
-    hex.value === ""
-      ? (hexRC.style.display = "none")
-      : (hexRC.style.display = "block");
+    const alphaChange = function (value) {
+      const colorPercent = Math.round((value / 100) * 255);
+      const firstValue = colorPercent / 16;
+      const secondValue = (firstValue - Math.floor(firstValue)) * 16;
+      let firstFin =
+        Math.floor(firstValue) < 10
+          ? Math.floor(firstValue).toString()
+          : valueMap.get(Math.floor(firstValue));
+      let secondFin =
+        secondValue < 10 ? secondValue.toString() : valueMap.get(secondValue);
+      const fin = `${firstFin}${secondFin}`;
+      return fin;
+    };
+
+    rgbH.innerHTML =
+      alpha.value === "" ? `#${whole}` : `#${whole}${alphaChange(alpha.value)}`;
 
     hexR.innerHTML =
       alpha.value === ""
         ? `rgb(${converterHexRgb(hex.value)})`
-        : `rgb(${converterHexRgb(hex.value)}, ${alpha.value})`;
+        : `rgb(${converterHexRgb(hex.value)}, ${alpha.value / 100})`;
 
-    rgbHC.style.backgroundColor = `#${whole}`;
+    rgbHC.style.backgroundColor = rgbH.innerHTML;
     hexRC.style.backgroundColor = hexR.innerHTML;
   });
+
+reset.addEventListener("click", function () {
+  red.value = "";
+  green.value = "";
+  blue.value = "";
+  hex.value = "";
+  alpha.value = "";
+  rgbMain.style.display = "none";
+  hexMain.style.display = "none";
+});

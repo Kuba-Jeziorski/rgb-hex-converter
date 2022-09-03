@@ -87,9 +87,16 @@ label {
   margin: 0 10px 0 0;
 }
 
-#hex-to-rgb,
-#rgb-to-hex {
+#rgb-main,
+#hex-main {
   display: none;
+}
+
+#hex-to-rgb,
+#rgb-to-hex,
+#rgbHSum,
+#hexRSum {
+  /* display: none; */
 }
 
 #hex-to-rgb-color,
@@ -98,13 +105,13 @@ label {
   height: 35px;
   border: 1px solid #000;
   margin: 0 auto;
-  display: none;
+  /* display: none; */
 }
 
 #rgb-to-hex-copy,
 #hex-to-rgb-copy {
   cursor: pointer;
-  display: none;
+  /* display: none; */
   width: 25%;
   border: 1px solid red;
   margin: 0 auto 15px;
@@ -114,4 +121,5 @@ label {
 X 1. Dodać alphę 
 X 2. Kopiowanie wyniku
 3. if niewypełnione pole to nie wypluwa wyniku; jeśli wypełnione tylko HEX to nie wypluwa RGB; jeśli wypełnione 2 rgb to nie wypluje nic; jeśli alpha skip to nie wyświetla wyniku
+4. dodać alphę do backgroundu
 */

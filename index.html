@@ -53,7 +53,12 @@
           <div class="hex-colors" style="width: 100%; border: 2px solid red">
             <div class="color">
               <label>HEX</label>
-              <input type="text" placeholder="HEX" id="hex" />
+              <input
+                type="text"
+                placeholder="HEX"
+                pattern="[a-fA-F0-9#]{6,7}"
+                id="hex"
+              />
             </div>
           </div>
         </div>
@@ -72,14 +77,24 @@
           <p>CONVERSION</p>
         </button>
       </form>
-      <p>Zamiana z RGB na HEX</p>
-      <p id="rgb-to-hex" style="color: red">(TUTAJ)</p>
-      <p id="rgb-to-hex-copy">SKOPIUJ</p>
-      <div id="rgb-to-hex-color"></div>
-      <p style="margin: 130px 0 0 0">Zmiana z HEX na RGB</p>
-      <p id="hex-to-rgb" style="color: red">TUTAJ</p>
-      <p id="hex-to-rgb-copy">SKOPIUJ</p>
-      <div id="hex-to-rgb-color"></div>
+      <div id="rgb-main">
+        <p id="rgbHSum">Zamiana z RGB na HEX</p>
+        <p id="rgb-to-hex" style="color: red">(TUTAJ)</p>
+        <p id="rgb-to-hex-copy">SKOPIUJ</p>
+        <div id="rgb-to-hex-color"></div>
+      </div>
+      <div id="hex-main">
+        <p id="hexRSum">Zmiana z HEX na RGB</p>
+        <p id="hex-to-rgb" style="color: red">TUTAJ</p>
+        <p id="hex-to-rgb-copy">SKOPIUJ</p>
+        <div id="hex-to-rgb-color"></div>
+      </div>
+      <div
+        id="reset"
+        style="width: 200px; height: 50px; background: red; margin: 20px auto 0"
+      >
+        RESET
+      </div>
     </div>
 
     <script src="script.js"></script>
