@@ -96,7 +96,7 @@ img {
 
 button[type="submit"] {
   width: 220px;
-  margin: 25px auto;
+  margin: 0 auto;
 }
 
 .flex-c {
@@ -253,4 +253,27 @@ background: lightgrey;
 
 #reset:hover {
   opacity: 1;
+}
+
+.alph {
+  position: relative;
+  margin: 0 0 50px 0;
+}
+
+.alph::after,
+.alph::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 2px;
+  background: lightgray;
+}
+
+.alph::after {
+  bottom:-15px;
+}
+
+.alph::before {
+  top: -30px;
 }
