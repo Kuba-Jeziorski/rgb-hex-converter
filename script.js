@@ -146,3 +146,4 @@ reset.addEventListener("click", function () {
   rgbMain.style.display = "none";
   hexMain.style.display = "none";
 });
+

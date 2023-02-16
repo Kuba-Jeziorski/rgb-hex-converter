@@ -6,74 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/img/hexagon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
     <title>RGB-HEX Converter</title>
   </head>
   <body>
-    <div
-      class="wrapper"
-      style="width: 50%; margin: 0 auto; border: 1px solid green; padding: 10px"
-    >
+    <div class="wrapper">
+      <div class="section">
+        <h1>HEX/RGB CONVERTER</h1>
+        <p>Add all three (R, G and B) value, add alpha if necessary and press "Conversion button" </p>
+        <p>or</p>
+        <p>Add hex value (with or without hash), add alpha if necessary and press "Conversion button"</p>
+      </div>
       <form id="conversion-form">
-        <div class="all-colors" style="display: flex">
-          <div class="rgb-colors" style="width: 100%; border: 2px solid blue">
-            <div class="color">
-              <label>RED</label>
-              <input
-                type="number"
-                min="0"
-                step="1"
-                max="255"
-                placeholder="RED"
-                id="red"
-              />
-            </div>
-            <div class="color">
-              <label>GREEN</label>
-              <input
-                type="number"
-                min="0"
-                step="1"
-                max="255"
-                placeholder="GREEN"
-                id="green"
-              />
-            </div>
-            <div class="color">
-              <label>BLUE</label>
-              <input
-                type="number"
-                min="0"
-                step="1"
-                max="255"
-                placeholder="BLUE"
-                id="blue"
-              />
+        <div class="all-colors flex-nw">
+          <div class="rgb-colors colors">
+            <div class="color-wrapper flex-col">
+              <img src="img/rgb-no-bg.png"/>
+              <div class="color-container flex-c">
+                <div class="color red">
+                  <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    max="255"
+                    placeholder="RED"
+                    id="red"
+                  />
+                  <label>RED</label>
+                </div>
+                <div class="color green">
+                  <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    max="255"
+                    placeholder="GREEN"
+                    id="green"
+                  />
+                  <label>GREEN</label>
+                </div>
+                <div class="color blue">
+                  <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    max="255"
+                    placeholder="BLUE"
+                    id="blue"
+                  />
+                  <label>BLUE</label>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="hex-colors" style="width: 100%; border: 2px solid red">
-            <div class="color">
-              <label>HEX</label>
-              <input
-                type="text"
-                placeholder="HEX"
-                pattern="[a-fA-F0-9#]{6,7}"
-                id="hex"
-              />
+          
+          <div class="hex-colors colors">
+            <div class="color-wrapper flex-col">
+              <img src="img/hex-no-bg.png"/>
+              <div class="color-container flex-c">
+                <div class="color hex">
+                  <input
+                    type="text"
+                    placeholder="HEX"
+                    pattern="[a-fA-F0-9#]{6,7}"
+                    id="hex"
+                  />
+                  <label>HEX</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="alpha colors">
+          <div class="flex-nw alpha-content flex-c">
+            <div class="color-container flex-c">
+              <div class="color alph">
+                <input
+                  type="number"
+                  min="0.01"
+                  step="0.01"
+                  max="100"
+                  placeholder="ALPHA"
+                  id="alpha"
+                />
+                <label>ALPHA</label>
+              </div>
             </div>
           </div>
         </div>
-        <div class="alpha">
-          <label>ALPHA</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            max="100"
-            placeholder="ALPHA"
-            id="alpha"
-          />
-        </div>
-        <button type="submit" id="conversion">
+        <button type="submit" id="conversion" class="btn">
           <p>CONVERSION</p>
         </button>
       </form>
@@ -90,13 +112,10 @@
         <div id="hex-to-rgb-color"></div>
       </div>
       <div
-        id="reset"
-        style="width: 200px; height: 50px; background: red; margin: 20px auto 0"
-      >
+        id="reset" class="btn fle-c">
         RESET
       </div>
     </div>
-
-    <script src="script.js"></script>
+    
   </body>
 </html>

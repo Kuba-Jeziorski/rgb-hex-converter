@@ -72,10 +72,10 @@ form {
   flex-direction: column;
 }
 
-.color {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 10px 0;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 label,
@@ -87,16 +87,50 @@ label {
   margin: 0 10px 0 0;
 }
 
+img {
+  width: 150px;
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+  padding: 0 0 25px;
+}
+
+button[type="submit"] {
+  width: 220px;
+  margin: 25px auto;
+}
+
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-nw {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section {
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+}
+
 #rgb-main,
 #hex-main {
   display: none;
-}
-
-#hex-to-rgb,
-#rgb-to-hex,
-#rgbHSum,
-#hexRSum {
-  /* display: none; */
 }
 
 #hex-to-rgb-color,
@@ -105,21 +139,118 @@ label {
   height: 35px;
   border: 1px solid #000;
   margin: 0 auto;
-  /* display: none; */
 }
 
 #rgb-to-hex-copy,
 #hex-to-rgb-copy {
   cursor: pointer;
-  /* display: none; */
   width: 25%;
   border: 1px solid red;
   margin: 0 auto 15px;
 }
 
-/*
-X 1. Dodać alphę 
-X 2. Kopiowanie wyniku
-3. if niewypełnione pole to nie wypluwa wyniku; jeśli wypełnione tylko HEX to nie wypluwa RGB; jeśli wypełnione 2 rgb to nie wypluje nic; jeśli alpha skip to nie wyświetla wyniku
-4. dodać alphę do backgroundu
-*/
+.wrapper {
+  border: 2px solid #000;
+  padding: 5px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.colors {
+  width: 100%;
+}
+
+.color-wrapper {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.color-container {
+  gap: 15px;
+}
+
+.color, .color input {
+  width: 100%;
+}
+
+.hex-colors .color {
+  width: 33%;
+}
+
+.color label {
+  padding: 5px 0 0 0;
+  font-weight: bold;
+  font-size: 12px;
+  color: grey;
+}
+
+.color input {
+  border: 2px solid #000;
+}
+
+input:focus {
+  outline: transparent;
+}
+
+.color.red input:focus {
+  border: 2px solid red;
+}
+.color.green input:focus {
+  border: 2px solid lime;
+}
+.color.blue input:focus {
+  border: 2px solid blue;
+}
+.color.hex input:focus {
+  border: 2px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+}
+.color.alph input:focus {
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #000 0%, #fff 100%);
+  border-image-slice: 1;
+}
+
+.hex-colors {
+  position: relative;
+}
+
+.hex-colors::before {
+content: '';
+position: absolute;
+top: 50%;
+translate: 0 -50%;
+left: 0;
+height: 80%;
+width: 2px;
+background: lightgrey;
+}
+
+
+.alpha-content {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.alpha-content input {
+  width: 120px;
+}
+
+#reset {
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  background: red;
+  opacity: 0.5;
+  margin: 20px auto;
+
+  transition: opacity .3s;
+}
+
+#reset:hover {
+  opacity: 1;
+}
