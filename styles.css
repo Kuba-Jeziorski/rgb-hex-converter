@@ -241,6 +241,10 @@ content: '';
   width: 100%;
 }
 
+.rgb-colors {
+  position: relative;
+}
+
 .color-wrapper {
   max-width: 300px;
   width: 100%;
@@ -337,4 +341,107 @@ background: lightgrey;
 
 .alph::before {
   top: -30px;
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .color-container {
+    flex-direction: column;
+  }
+
+  .colors .color-wrapper .color {
+    width: 33%;
+  }
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    padding: 5px 20px;
+  }
+  
+  .hex-colors::before {
+    height: 85%;
+  }
+
+  .alph::before {
+    top: -32px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button[type="submit"] p, #reset {
+    font-size: 14px;
+  }
+
+  #rgb-to-hex-copy, #hex-to-rgb-copy {
+    font-size: 14px;
+  }
+
+  .colors .color-wrapper .color {
+    width: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+
+  button[type="submit"], #reset {
+    width: 200px;
+  }
+
+  #rgb-to-hex-copy, #hex-to-rgb-copy {
+    width: 40%;
+  }
+
+  #conversion-form > div:first-of-type {
+    flex-wrap: wrap;
+  }
+
+  .section {
+    margin: 0 0 50px;
+  }
+
+  .rgb-colors::after {
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    translate: -50% 0;
+    width: 100px;
+    height: 2px;
+    background: lightgrey;
+  }
+
+  .hex-colors::before {
+    display: none;
+  }
+
+  .color-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 0 50px;
+  }
+
+  .alpha-content, .color-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .alph input {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
