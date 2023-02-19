@@ -7,19 +7,19 @@
     <link rel="icon" href="/img/hexagon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
-    <title>RGB-HEX Converter</title>
+    <title>Color Converter</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="section">
         <h1>HEX/RGB CONVERTER</h1>
-        <p>Add all three (R, G and B) value, add alpha if necessary and press "Conversion button" </p>
+        <p>Add all three (R, G and B) value, add alpha if necessary and press "Conversion" button </p>
         <p>or</p>
-        <p>Add hex value (with or without hash), add alpha if necessary and press "Conversion button"</p>
+        <p>Add hex value (with or without hash), add alpha if necessary and press "Conversion" button</p>
       </div>
       <form id="conversion-form">
-        <div class="all-colors flex-nw">
-          <div class="rgb-colors colors">
+        <div class="flex-nw">
+          <div class="colors">
             <div class="color-wrapper flex-col">
               <img src="img/rgb-no-bg.png"/>
               <div class="color-container flex-c">
@@ -78,6 +78,7 @@
           </div>
           
         </div>
+
         <div class="alpha colors">
           <div class="flex-nw alpha-content flex-c">
             <div class="color-container flex-c">
@@ -95,21 +96,22 @@
             </div>
           </div>
         </div>
+
         <button type="submit" id="conversion" class="btn">
           <p>CONVERSION</p>
         </button>
+
       </form>
+
       <div id="rgb-main">
-        <p id="rgbHSum">Zamiana z RGB na HEX</p>
-        <p id="rgb-to-hex" style="color: red">(TUTAJ)</p>
-        <p id="rgb-to-hex-copy">SKOPIUJ</p>
+        <p id="rgb-to-hex"></p>
         <div id="rgb-to-hex-color"></div>
+        <p id="rgb-to-hex-copy">COPY</p>
       </div>
       <div id="hex-main">
-        <p id="hexRSum">Zmiana z HEX na RGB</p>
-        <p id="hex-to-rgb" style="color: red">TUTAJ</p>
-        <p id="hex-to-rgb-copy">SKOPIUJ</p>
+        <p id="hex-to-rgb"></p>
         <div id="hex-to-rgb-color"></div>
+        <p id="hex-to-rgb-copy">COPY</p>
       </div>
       <div
         id="reset" class="btn fle-c">

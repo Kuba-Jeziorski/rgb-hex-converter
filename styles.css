@@ -94,9 +94,32 @@ img {
   padding: 0 0 25px;
 }
 
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 button[type="submit"] {
+  border: none;
   width: 220px;
-  margin: 0 auto;
+  height: 50px;
+  margin: 20px auto;
+  background: lime;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+button[type="submit"] p {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
+}
+
+input:focus {
+  outline: transparent;
 }
 
 .flex-c {
@@ -131,6 +154,37 @@ button[type="submit"] {
 #rgb-main,
 #hex-main {
   display: none;
+  padding: 20px 0;
+  position: relative;
+}
+
+#rgb-main::before,
+#rgb-main::after,
+#hex-main::before,
+#hex-main::after {
+position: absolute;
+left: 50%;
+translate: -50% 0;
+width: 100px;
+height: 2px;
+background: lightgrey;
+content: '';
+}
+
+#rgb-main::before,
+#hex-main::before {
+  top: 0;
+}
+
+#rgb-main::after,
+#hex-main::after {
+  bottom: 0;
+}
+
+#hex-to-rgb,
+#rgb-to-hex {
+  color: #000;
+  font-weight: bold;
 }
 
 #hex-to-rgb-color,
@@ -138,20 +192,47 @@ button[type="submit"] {
   width: 35px;
   height: 35px;
   border: 1px solid #000;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 #rgb-to-hex-copy,
 #hex-to-rgb-copy {
   cursor: pointer;
-  width: 25%;
-  border: 1px solid red;
-  margin: 0 auto 15px;
+  width: 20%;
+  height: 40px;
+  line-height: 40px;
+  background: lightgray;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 auto;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+#rgb-to-hex-copy:hover,
+#hex-to-rgb-copy:hover {
+  opacity: 1;
+}
+
+#reset {
+  width: 220px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  background: red;
+  opacity: 0.5;
+  margin: 20px auto;
+  font-size: 18px;
+  transition: opacity .3s;
+}
+
+#reset:hover {
+  opacity: 1;
 }
 
 .wrapper {
-  border: 2px solid #000;
   padding: 5px;
+  background: rgb(250, 250, 250);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -179,6 +260,21 @@ button[type="submit"] {
   width: 33%;
 }
 
+.hex-colors {
+  position: relative;
+}
+
+.hex-colors::before {
+content: '';
+position: absolute;
+top: 50%;
+translate: 0 -50%;
+left: 0;
+height: 80%;
+width: 2px;
+background: lightgrey;
+}
+
 .color label {
   padding: 5px 0 0 0;
   font-weight: bold;
@@ -188,10 +284,6 @@ button[type="submit"] {
 
 .color input {
   border: 2px solid #000;
-}
-
-input:focus {
-  outline: transparent;
 }
 
 .color.red input:focus {
@@ -214,22 +306,6 @@ input:focus {
   border-image-slice: 1;
 }
 
-.hex-colors {
-  position: relative;
-}
-
-.hex-colors::before {
-content: '';
-position: absolute;
-top: 50%;
-translate: 0 -50%;
-left: 0;
-height: 80%;
-width: 2px;
-background: lightgrey;
-}
-
-
 .alpha-content {
   max-width: 250px;
   margin: 0 auto;
@@ -239,33 +315,18 @@ background: lightgrey;
   width: 120px;
 }
 
-#reset {
-  width: 220px;
-  height: 50px;
-  line-height: 50px;
-  font-weight: bold;
-  background: red;
-  opacity: 0.5;
-  margin: 20px auto;
-
-  transition: opacity .3s;
-}
-
-#reset:hover {
-  opacity: 1;
-}
-
 .alph {
   position: relative;
-  margin: 0 0 50px 0;
+  margin: 0 0 15px 0;
 }
 
 .alph::after,
 .alph::before {
   content: '';
   position: absolute;
-  width: 100%;
-  left: 0;
+  width: 100px;
+  left: 50%;
+  translate: -50% 0;
   height: 2px;
   background: lightgray;
 }
