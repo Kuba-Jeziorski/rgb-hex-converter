@@ -136,7 +136,7 @@
       hexR.innerHTML =
         alpha.value === ""
           ? `rgb(${converterHexRgb(hex.value)})`
-          : `rgb(${converterHexRgb(hex.value)}, ${alpha.value / 100})`;
+          : `rgba(${converterHexRgb(hex.value)}, ${alpha.value / 100})`;
   
       rgbHC.style.backgroundColor = rgbH.innerHTML;
       hexRC.style.backgroundColor = hexR.innerHTML;
