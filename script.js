@@ -71,8 +71,6 @@
       whole = [...arr1, ...arr2, ...arr3].join().replaceAll(",", "");
   
       // HEX -> RGB
-      // IMPORTANT
-      // add cause gate for hashtag + 5 characters
       const converterHexRgb = function (value) {
         value = value.includes("#") ? value.replaceAll("#", "") : value;
 
