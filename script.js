@@ -16,6 +16,8 @@
   const hexMain = document.getElementById("hex-main");
   const reset = document.getElementById("reset");
   
+
+  // nie da się wyciągnąć wszystkich informacji z jednego mapa? może lepiej obiekt?
   const valueMap = new Map([
     [10, "A"],
     [11, "B"],
@@ -32,7 +34,6 @@
     ["E", 14],
     ["F", 15],
   ]);
-  
   
   const contentCopy = function (content) {
     navigator.clipboard.writeText(content);
@@ -70,23 +71,28 @@
       whole = [...arr1, ...arr2, ...arr3].join().replaceAll(",", "");
   
       // HEX -> RGB
-      const converterHexRgb = function (string) {
-        string = string.includes("#") ? string.replaceAll("#", "") : string;
+      // IMPORTANT
+      // add cause gate for hashtag + 5 characters
+      const converterHexRgb = function (value) {
+        value = value.includes("#") ? value.replaceAll("#", "") : value;
+
+        if (value.length === 5) {
+          alert(`This hexcode is not proper. There should be 6 non-hashtag characters.`)
+          return;
+        }
+
+        value = value.toUpperCase(); 
+        let splitedValue = value.split("");
   
-        string = string.toUpperCase();
-        let array = string.split("");
-  
-        for (let i = 0; i < array.length; i++) {
-          array[i] =
-            array[i] < 10 ? array[i] : valueMap2.get(array[i]);
-            array[i] = Number(array[i]);
+        for (let i = 0; i < splitedValue.length; i++) {
+          splitedValue[i] =
+            splitedValue[i] < 10 ? splitedValue[i] : valueMap2.get(splitedValue[i]);
+            splitedValue[i] = Number(splitedValue[i]);
         }
   
-        console.log(array);
-  
-        let hexR = (array[0] + array[1] / 16) * 16;
-        let hexG = (array[2] + array[3] / 16) * 16;
-        let hexB = (array[4] + array[5] / 16) * 16;
+        let hexR = (splitedValue[0] + splitedValue[1] / 16) * 16;
+        let hexG = (splitedValue[2] + splitedValue[3] / 16) * 16;
+        let hexB = (splitedValue[4] + splitedValue[5] / 16) * 16;
   
         let hexRGB = `${hexR}, ${hexG}, ${hexB}`;
         return hexRGB;
