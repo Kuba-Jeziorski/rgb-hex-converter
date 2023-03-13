@@ -38,6 +38,16 @@
   const contentCopy = function (content) {
     navigator.clipboard.writeText(content);
   };
+
+  const contentClear = function() {
+    red.value = "";
+    green.value = "";
+    blue.value = "";
+    hex.value = "";
+    alpha.value = "";
+    rgbMain.style.display = "none";
+    hexMain.style.display = "none";
+  }
   
   document
     .getElementById("conversion-form")
@@ -74,8 +84,10 @@
       const converterHexRgb = function (value) {
         value = value.includes("#") ? value.replaceAll("#", "") : value;
 
+        // when input is # and 5 characters (length of 6 characters if proper)
         if (value.length === 5) {
           alert(`This hexcode is not proper. There should be 6 non-hashtag characters.`)
+          contentClear();
           return;
         }
 
@@ -146,14 +158,6 @@
       hexRC.style.backgroundColor = hexR.innerHTML;
     });
   
-  reset.addEventListener("click", function () {
-    red.value = "";
-    green.value = "";
-    blue.value = "";
-    hex.value = "";
-    alpha.value = "";
-    rgbMain.style.display = "none";
-    hexMain.style.display = "none";
-  });
+  reset.addEventListener("click", contentClear);
   
 })();
