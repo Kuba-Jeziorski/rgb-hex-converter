@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./img/hexagon.svg" type="image/x-icon" />
-<!--     <link rel="icon" href="/img/hexagon.svg" type="image/x-icon" /> -->
+    <!--     <link rel="icon" href="/img/hexagon.svg" type="image/x-icon" /> -->
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
     <title>Color Converter</title>
@@ -14,15 +14,21 @@
     <div class="wrapper">
       <div class="section">
         <h1>HEX/RGB CONVERTER</h1>
-        <p>Add all three (R, G and B) value, add alpha if necessary and press "Conversion" button </p>
+        <p>
+          Add all three (R, G and B) value, add alpha if necessary and press
+          "Conversion" button
+        </p>
         <p>or</p>
-        <p>Add hex value (with or without hash), add alpha if necessary and press "Conversion" button</p>
+        <p>
+          Add hex value (with or without hash), add alpha if necessary and press
+          "Conversion" button
+        </p>
       </div>
       <form id="conversion-form">
         <div class="flex-nw">
           <div class="rgb-colors colors">
             <div class="color-wrapper flex-col">
-              <img src="img/rgb-no-bg.png"/>
+              <img src="img/rgb-no-bg.png" />
               <div class="color-container flex-c">
                 <div class="color red">
                   <input
@@ -60,16 +66,17 @@
               </div>
             </div>
           </div>
-          
+
           <div class="hex-colors colors">
             <div class="color-wrapper flex-col">
-              <img src="img/hex-no-bg.png"/>
+              <img src="img/hex-no-bg.png" />
               <div class="color-container flex-c">
                 <div class="color hex">
+                  <!-- new regex makes only proper inputs to pass -->
                   <input
                     type="text"
                     placeholder="HEX"
-                    pattern="[a-fA-F0-9#]{6,7}"
+                    pattern="^#?[a-fA-F0-9]{3}([a-fA-F0-9]{3})?$"
                     id="hex"
                   />
                   <label>HEX</label>
@@ -77,7 +84,6 @@
               </div>
             </div>
           </div>
-          
         </div>
 
         <div class="alpha colors">
@@ -101,7 +107,6 @@
         <button type="submit" id="conversion" class="btn">
           <p>CONVERSION</p>
         </button>
-
       </form>
 
       <div id="rgb-main">
@@ -114,11 +119,7 @@
         <div id="hex-to-rgb-color"></div>
         <p id="hex-to-rgb-copy">COPY</p>
       </div>
-      <div
-        id="reset" class="btn fle-c">
-        RESET
-      </div>
+      <div id="reset" class="btn fle-c">RESET</div>
     </div>
-    
   </body>
 </html>
