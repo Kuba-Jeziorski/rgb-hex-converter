@@ -162,13 +162,13 @@ input:focus {
 #rgb-main::after,
 #hex-main::before,
 #hex-main::after {
-position: absolute;
-left: 50%;
-translate: -50% 0;
-width: 100px;
-height: 2px;
-background: lightgrey;
-content: '';
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  width: 100px;
+  height: 2px;
+  background: lightgrey;
+  content: "";
 }
 
 #rgb-main::before,
@@ -223,7 +223,7 @@ content: '';
   opacity: 0.5;
   margin: 20px auto;
   font-size: 18px;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 #reset:hover {
@@ -256,7 +256,8 @@ content: '';
   gap: 15px;
 }
 
-.color, .color input {
+.color,
+.color input {
   width: 100%;
 }
 
@@ -269,14 +270,14 @@ content: '';
 }
 
 .hex-colors::before {
-content: '';
-position: absolute;
-top: 50%;
-translate: 0 -50%;
-left: 0;
-height: 80%;
-width: 2px;
-background: lightgrey;
+  content: "";
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 0;
+  height: 80%;
+  width: 2px;
+  background: lightgrey;
 }
 
 .color label {
@@ -301,7 +302,14 @@ background: lightgrey;
 }
 .color.hex input:focus {
   border: 2px solid transparent;
-  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
   border-image-slice: 1;
 }
 .color.alph input:focus {
@@ -326,7 +334,7 @@ background: lightgrey;
 
 .alph::after,
 .alph::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100px;
   left: 50%;
@@ -336,7 +344,7 @@ background: lightgrey;
 }
 
 .alph::after {
-  bottom:-15px;
+  bottom: -15px;
 }
 
 .alph::before {
@@ -364,7 +372,7 @@ background: lightgrey;
   .wrapper {
     padding: 5px 20px;
   }
-  
+
   .hex-colors::before {
     height: 85%;
   }
@@ -383,11 +391,13 @@ background: lightgrey;
     font-size: 14px;
   }
 
-  button[type="submit"] p, #reset {
+  button[type="submit"] p,
+  #reset {
     font-size: 14px;
   }
 
-  #rgb-to-hex-copy, #hex-to-rgb-copy {
+  #rgb-to-hex-copy,
+  #hex-to-rgb-copy {
     font-size: 14px;
   }
 
@@ -397,12 +407,13 @@ background: lightgrey;
 }
 
 @media (max-width: 375px) {
-
-  button[type="submit"], #reset {
+  button[type="submit"],
+  #reset {
     width: 200px;
   }
 
-  #rgb-to-hex-copy, #hex-to-rgb-copy {
+  #rgb-to-hex-copy,
+  #hex-to-rgb-copy {
     width: 40%;
   }
 
@@ -415,7 +426,7 @@ background: lightgrey;
   }
 
   .rgb-colors::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 25px;
     left: 50%;
@@ -435,7 +446,8 @@ background: lightgrey;
     padding: 0 0 50px;
   }
 
-  .alpha-content, .color-container {
+  .alpha-content,
+  .color-container {
     max-width: 100%;
     width: 100%;
   }

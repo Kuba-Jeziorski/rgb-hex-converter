@@ -72,10 +72,11 @@
               <img src="img/hex-no-bg.png" />
               <div class="color-container flex-c">
                 <div class="color hex">
+                  <!-- new regex makes only proper inputs to pass -->
                   <input
                     type="text"
                     placeholder="HEX"
-                    pattern="[a-fA-F0-9#]{6,7}"
+                    pattern="^#?[a-fA-F0-9]{3}([a-fA-F0-9]{3})?$"
                     id="hex"
                   />
                   <label>HEX</label>
